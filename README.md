@@ -1,1 +1,1 @@
-Assignments on methods of computional mathematics, 3 course
+Assignments on methods of computational mathematics, 3 course
