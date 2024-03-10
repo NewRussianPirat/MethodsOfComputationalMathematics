@@ -91,7 +91,7 @@ public:
         return polynomial;
     };
 
-    T solve(const T &x) {
+    T solve(const T &x) const {
         T result = 0;
         T a = 1;
         for (const auto &i: this->polynomial) {
