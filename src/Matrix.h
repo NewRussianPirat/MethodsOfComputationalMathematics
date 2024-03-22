@@ -31,6 +31,9 @@ template<typename T>
 struct is_Double<T, std::enable_if_t<std::is_same<T, Double>::value>> : std::true_type {
 };
 
+template<typename T>
+class Polynomial;
+
 template<typename T, typename = void>
 struct is_Polynomial : std::false_type {
 };
