@@ -12,28 +12,20 @@ public:
     Double() : value(0.) {}
 
     Double(double d) {
-        if (decimal == 16) {
-            value = d;
-        } else {
-            value = Double::Round(d);
-        }
+        value = Double::Round(d);
     }
 
     Double(int i) {
-        if (decimal == 16) {
-            value = i;
-        } else {
-            value = Double::Round(i);
-        }
+        value = Double::Round(i);
     }
 
     virtual ~Double() = default;
 
-    Double(const Double &aDouble) = default;
+    Double(const Double &x) = default;
 
-    Double(Double &&aDouble) = default;
+    Double(Double &&x) = default;
 
-    Double &operator=(const Double &aDouble);
+    Double &operator=(const Double &x);
 
     Double &operator=(double d);
 
@@ -41,25 +33,25 @@ public:
 
     Double operator+(double d) const;
 
-    friend Double operator+(double d, const Double &aDouble);
+    friend Double operator+(double d, const Double &x);
 
     Double operator-(const Double &d) const;
 
     Double operator-(double d) const;
 
-    friend Double operator-(double d, const Double &aDouble);
+    friend Double operator-(double d, const Double &x);
 
     Double operator*(const Double &d) const;
 
     Double operator*(double d) const;
 
-    friend Double operator*(double d, const Double &aDouble);
+    friend Double operator*(double d, const Double &x);
 
     Double operator/(const Double &d) const;
 
     Double operator/(double d) const;
 
-    friend Double operator/(double d, const Double &aDouble);
+    friend Double operator/(double d, const Double &x);
 
     Double &operator+=(const Double &d);
 
@@ -81,62 +73,62 @@ public:
 
     friend bool operator==(const Double &d1, const Double &d2);
 
-    friend bool operator==(double d, const Double &aDouble);
+    friend bool operator==(double d, const Double &x);
 
-    friend bool operator==(const Double &aDouble, double d);
+    friend bool operator==(const Double &x, double d);
 
     friend bool operator!=(const Double &d1, const Double &d2);
 
-    friend bool operator!=(double d, const Double &aDouble);
+    friend bool operator!=(double d, const Double &x);
 
-    friend bool operator!=(const Double &aDouble, double d);
+    friend bool operator!=(const Double &x, double d);
 
     friend bool operator>(const Double &d1, const Double &d2);
 
-    friend bool operator>(double d, const Double &aDouble);
+    friend bool operator>(double d, const Double &x);
 
-    friend bool operator>(const Double &aDouble, double d);
+    friend bool operator>(const Double &x, double d);
 
     friend bool operator<(const Double &d1, const Double &d2);
 
-    friend bool operator<(double d, const Double &aDouble);
+    friend bool operator<(double d, const Double &x);
 
-    friend bool operator<(const Double &aDouble, double d);
+    friend bool operator<(const Double &x, double d);
 
     friend bool operator>=(const Double &d1, const Double &d2);
 
-    friend bool operator>=(double d, const Double &aDouble);
+    friend bool operator>=(double d, const Double &x);
 
-    friend bool operator>=(const Double &aDouble, double d);
+    friend bool operator>=(const Double &x, double d);
 
     friend bool operator<=(const Double &d1, const Double &d2);
 
-    friend bool operator<=(double d, const Double &aDouble);
+    friend bool operator<=(double d, const Double &x);
 
-    friend bool operator<=(const Double &aDouble, double d);
+    friend bool operator<=(const Double &x, double d);
 
     [[nodiscard]] double getValue() const;
 
-    static Double sqrt(const Double &aDouble);
+    static Double sqrt(const Double &x);
 
-    static Double pow(const Double &aDouble, const Double &x);
+    static Double pow(const Double &x, const Double &y);
 
-    static Double exp(const Double &aDouble);
+    static Double exp(const Double &x);
 
-    static Double log(const Double &aDouble);
+    static Double log(const Double &x);
 
-    static Double cos(const Double &aDouble);
+    static Double cos(const Double &x);
 
-    static Double sin(const Double &aDouble);
+    static Double sin(const Double &x);
 
-    static Double abs(const Double &aDouble);
+    static Double abs(const Double &x);
 
-    static Double max(const Double &aDouble, const Double &aDouble1);
+    static Double max(const Double &x, const Double &x1);
 
     template<typename... Args>
-    static Double max(const Double &aDouble, const Args &... args);
+    static Double max(const Double &x, const Args &... args);
 
-    friend std::ostream &operator<<(std::ostream &os, const Double &aDouble);
+    friend std::ostream &operator<<(std::ostream &os, const Double &x);
 
     static void setDecimal(unsigned int i);
 

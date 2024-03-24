@@ -8,11 +8,11 @@ double Double::getValue() const {
     return value;
 }
 
-Double &Double::operator=(const Double &aDouble) {
-    if (this == &aDouble) {
+Double &Double::operator=(const Double &x) {
+    if (this == &x) {
         return *this;
     }
-    value = aDouble.value;
+    value = x.value;
     return *this;
 }
 
@@ -29,8 +29,8 @@ Double Double::operator+(double d) const {
     return {this->value + d};
 }
 
-Double operator+(double d, const Double &aDouble) {
-    return {aDouble.value + d};
+Double operator+(double d, const Double &x) {
+    return {x.value + d};
 }
 
 Double Double::operator-(const Double &d) const {
@@ -41,8 +41,8 @@ Double Double::operator-(double d) const {
     return {this->value - d};
 }
 
-Double operator-(double d, const Double &aDouble) {
-    return {aDouble.value - d};
+Double operator-(double d, const Double &x) {
+    return {x.value - d};
 }
 
 Double Double::operator*(const Double &d) const {
@@ -53,8 +53,8 @@ Double Double::operator*(double d) const {
     return {this->value * d};
 }
 
-Double operator*(double d, const Double &aDouble) {
-    return {aDouble.value * d};
+Double operator*(double d, const Double &x) {
+    return {x.value * d};
 }
 
 Double Double::operator/(const Double &d) const {
@@ -65,8 +65,8 @@ Double Double::operator/(double d) const {
     return {this->value / d};
 }
 
-Double operator/(double d, const Double &aDouble) {
-    return {d / aDouble.value};
+Double operator/(double d, const Double &x) {
+    return {d / x.value};
 }
 
 Double &Double::operator+=(const Double &d) {
@@ -117,117 +117,117 @@ bool operator==(const Double &d1, const Double &d2) {
     return d1.value == d2.value;
 }
 
-bool operator==(double d, const Double &aDouble) {
-    return d == aDouble.value;
+bool operator==(double d, const Double &x) {
+    return d == x.value;
 }
 
-bool operator==(const Double &aDouble, double d) {
-    return aDouble.value == d;
+bool operator==(const Double &x, double d) {
+    return x.value == d;
 }
 
 bool operator!=(const Double &d1, const Double &d2) {
     return d1.value != d2.value;
 }
 
-bool operator!=(double d, const Double &aDouble) {
-    return d != aDouble.value;
+bool operator!=(double d, const Double &x) {
+    return d != x.value;
 }
 
-bool operator!=(const Double &aDouble, double d) {
-    return aDouble.value != d;
+bool operator!=(const Double &x, double d) {
+    return x.value != d;
 }
 
 bool operator>(const Double &d1, const Double &d2) {
     return d1.value > d2.value;
 }
 
-bool operator>(double d, const Double &aDouble) {
-    return d > aDouble.value;
+bool operator>(double d, const Double &x) {
+    return d > x.value;
 }
 
-bool operator>(const Double &aDouble, double d) {
-    return aDouble.value > d;
+bool operator>(const Double &x, double d) {
+    return x.value > d;
 }
 
 bool operator<(const Double &d1, const Double &d2) {
     return d1.value < d2.value;
 }
 
-bool operator<(double d, const Double &aDouble) {
-    return d < aDouble.value;
+bool operator<(double d, const Double &x) {
+    return d < x.value;
 }
 
-bool operator<(const Double &aDouble, double d) {
-    return aDouble.value < d;
+bool operator<(const Double &x, double d) {
+    return x.value < d;
 }
 
 bool operator>=(const Double &d1, const Double &d2) {
     return d1.value >= d2.value;
 }
 
-bool operator>=(double d, const Double &aDouble) {
-    return d >= aDouble.value;
+bool operator>=(double d, const Double &x) {
+    return d >= x.value;
 }
 
-bool operator>=(const Double &aDouble, double d) {
-    return aDouble.value >= d;
+bool operator>=(const Double &x, double d) {
+    return x.value >= d;
 }
 
 bool operator<=(const Double &d1, const Double &d2) {
     return d1.value <= d2.value;
 }
 
-bool operator<=(double d, const Double &aDouble) {
-    return d <= aDouble.value;
+bool operator<=(double d, const Double &x) {
+    return d <= x.value;
 }
 
-bool operator<=(const Double &aDouble, double d) {
-    return aDouble.value <= d;
+bool operator<=(const Double &x, double d) {
+    return x.value <= d;
 }
 
-Double Double::sqrt(const Double &aDouble) {
-    return {std::sqrt(aDouble.value)};
+Double Double::sqrt(const Double &x) {
+    return {std::sqrt(x.value)};
 }
 
-Double Double::pow(const Double &aDouble, const Double &x) {
-    return {std::pow(aDouble.value, x.value)};
+Double Double::pow(const Double &x, const Double &y) {
+    return {std::pow(x.value, y.value)};
 }
 
-Double Double::exp(const Double &aDouble) {
-    return {std::exp(aDouble.value)};
+Double Double::exp(const Double &x) {
+    return {std::exp(x.value)};
 }
 
-Double Double::log(const Double &aDouble) {
-    return {std::log(aDouble.value)};
+Double Double::log(const Double &x) {
+    return {std::log(x.value)};
 }
 
-Double Double::cos(const Double &aDouble) {
-    return {std::cos(aDouble.value)};
+Double Double::cos(const Double &x) {
+    return {std::cos(x.value)};
 }
 
-Double Double::sin(const Double &aDouble) {
-    return {std::sin(aDouble.value)};
+Double Double::sin(const Double &x) {
+    return {std::sin(x.value)};
 }
 
-Double Double::abs(const Double &aDouble) {
-    return {std::abs(aDouble.value)};
+Double Double::abs(const Double &x) {
+    return {std::abs(x.value)};
 }
 
-Double Double::max(const Double &aDouble, const Double &aDouble1) {
-    if (aDouble.value > aDouble1.value) {
-        return {aDouble.value};
+Double Double::max(const Double &x, const Double &x1) {
+    if (x.value > x1.value) {
+        return {x.value};
     } else {
-        return {aDouble1.value};
+        return {x1.value};
     }
 }
 
 template<typename... Args>
-Double Double::max(const Double &aDouble, const Args &... args) {
-    return max(aDouble, max(args...));
+Double Double::max(const Double &x, const Args &... args) {
+    return max(x, max(args...));
 }
 
-std::ostream &operator<<(std::ostream &os, const Double &aDouble) {
-    return os << aDouble.getValue();
+std::ostream &operator<<(std::ostream &os, const Double &x) {
+    return os << x.getValue();
 }
 
 void Double::setDecimal(unsigned int i) {

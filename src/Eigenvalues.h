@@ -15,7 +15,7 @@ class Eigenvalues {
 public:
     static Polynomial<T> danilevskyMethod(Matrix<T> A) {
         int n = A.getN();
-        Polynomial<T> result(1);
+        Polynomial<T> result = {1};
         for (int k = n - 2; k > -1; --k) {
             T a1 = A[k + 1][k];
             if (a1 == 0) {

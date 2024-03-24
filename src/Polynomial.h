@@ -15,7 +15,7 @@ class Polynomial {
 public:
     Polynomial() : polynomial(std::vector<T>()) {}
 
-    explicit Polynomial(int i) : polynomial(std::vector<T>(1, {i})) {}
+    explicit Polynomial(int i) : polynomial(std::vector<T>(i)) {}
 
     Polynomial(std::initializer_list<T> list) : polynomial(list.begin(), list.end()) {}
 
@@ -83,6 +83,24 @@ public:
         return result;
     }
 
+    Polynomial operator*(const T &x) const {
+        int n = this->polynomial.size();
+        Polynomial result(n);
+        for (int i = 0; i < n; ++i) {
+            result.polynomial[i] = this->polynomial[i] * x;
+        }
+        return result;
+    }
+
+    Polynomial operator/(const T &x) const {
+        int n = this->polynomial.size();
+        Polynomial result(n);
+        for (int i = 0; i < n; ++i) {
+            result.polynomial[i] = this->polynomial[i] / x;
+        }
+        return result;
+    }
+
     friend bool operator==(const Polynomial<T> &polynomial1, const Polynomial<T> &polynomial2) {
         return polynomial1.polynomial == polynomial2.polynomial;
     }
@@ -102,8 +120,20 @@ public:
     };
 
     friend std::ostream &operator<<(std::ostream &os, const Polynomial<T> &polynomial1) {
-        for (int i = polynomial1.polynomial.size() - 1; i > -1; --i) {
-            os << polynomial1.polynomial[i] << "x^" << i << " ";
+        int n = polynomial1.polynomial.size() - 1;
+        for (int i = n; i > -1; --i) {
+            if (polynomial1.polynomial[i] >= 0) {
+                if (i != n) {
+                    os << "+ ";
+                }
+                os << polynomial1.polynomial[i] << "x^" << i << " ";
+            } else if (polynomial1.polynomial[i] < 0) {
+                os << "-";
+                if (i != n) {
+                    os << " ";
+                }
+                os << -polynomial1.polynomial[i] << "x^" << i << " ";
+            }
         }
         return os;
     };

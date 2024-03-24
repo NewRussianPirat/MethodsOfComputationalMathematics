@@ -167,8 +167,9 @@ public:
         //generator
         std::random_device rd;
         std::mt19937 gen(rd());
-        std::uniform_real_distribution<double> dis(min, max);
+        std::uniform_real_distribution<double> dis(0, 1);
         //generator_end
+        double t = dis(gen);
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
                 T a = dis(gen);
